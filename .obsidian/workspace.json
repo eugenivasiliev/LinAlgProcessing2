@@ -1,0 +1,183 @@
+{
+  "main": {
+    "id": "ff2c924f42bcbbb5",
+    "type": "split",
+    "children": [
+      {
+        "id": "cfd8990449de7155",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "8ea56405cce47f57",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "README.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "884f5e1baeabab76",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.5.12"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "d696418b2b686a86",
+    "type": "split",
+    "children": [
+      {
+        "id": "8eb66fe3293a486e",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "aad667825382db72",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "579ad49916a6051b",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "d426ef27a2925d04",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "a1330b279241034c",
+    "type": "split",
+    "children": [
+      {
+        "id": "af4a03842c7a9455",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "7ccde2707e0195eb",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "README.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "8501deb4a2850b7d",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "README.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "f9a3f6304f6ac821",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "019e5733863e400b",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "README.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "8ea56405cce47f57",
+  "lastOpenFiles": [
+    "main/LOD1_concrete_house_004.obj",
+    "main/LOD0_concrete_house_004.obj",
+    "main/silo.obj",
+    "main/LOD2_fantasy_house.obj",
+    "main/LOD1_fantasy_house.obj",
+    "main/LOD0_fantasy_house.obj",
+    "main/textures/thatch_with_opacity/thatch_opacity_mask.png",
+    "main/textures/thatch_with_opacity/info.txt",
+    "main/textures/thatch_with_opacity",
+    "main/textures/thatch_no_opacity/gratis because you are awesome/thatch_bc3a.png",
+    "main/textures/thatch_no_opacity/gratis because you are awesome/thatch_bc2.png",
+    "main/textures/thatch_no_opacity/gratis because you are awesome",
+    "main/textures/thatch_no_opacity/thatch_roughness.png",
+    "main/textures/thatch_no_opacity/thatch_n.png",
+    "main/textures/thatch_no_opacity/thatch_bc.png",
+    "main/textures/thatch_no_opacity",
+    "main/textures/planks/gratis because you are awesome/boards_and_planks_bc2.png",
+    "main/textures/planks/gratis because you are awesome",
+    "main/textures/planks/boards_and_planks_roughness.png",
+    "main/textures/planks/boards_and_planks_n.png",
+    "main/textures/planks/boards_and_planks_bc.png"
+  ]
+}
