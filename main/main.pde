@@ -1,10 +1,15 @@
 boolean showPerspective = false;
 
+PShape house;
+
 void setup() {
   size(600, 360, P3D);
   noFill();
   fill(255);
   noStroke();
+  
+  house = loadShape("LOD0_long_house.obj");
+  house.scale(-3);
 }
 
 void draw() {
@@ -18,7 +23,7 @@ void draw() {
   translate(width/2, height/2, 0);
   rotateX(-PI/6);
   rotateY(PI/3);
-  box(180);
+  shape(house);
 }
 
 void mousePressed() {

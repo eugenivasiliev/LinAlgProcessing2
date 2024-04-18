@@ -158,6 +158,14 @@
   },
   "active": "8ea56405cce47f57",
   "lastOpenFiles": [
+    "main/red.jpg.crdownload",
+    "main/red.jpg",
+    "main/LOD0_long_house.mtl",
+    "main/planks.png",
+    "main/blue.jpg",
+    "main/360_F_310229109_5mOXhQEKYCLB0ZlJBQFR7DIBAUVBua4q.jpg",
+    "main/360_F_310229109_5mOXhQEKYCLB0ZlJBQFR7DIBAUVBua4q.jpg.crdownload",
+    "main/boards_and_planks_bc.png",
     "main/LOD1_concrete_house_004.obj",
     "main/LOD0_concrete_house_004.obj",
     "main/silo.obj",
@@ -166,18 +174,9 @@
     "main/LOD0_fantasy_house.obj",
     "main/textures/thatch_with_opacity/thatch_opacity_mask.png",
     "main/textures/thatch_with_opacity/info.txt",
-    "main/textures/thatch_with_opacity",
     "main/textures/thatch_no_opacity/gratis because you are awesome/thatch_bc3a.png",
     "main/textures/thatch_no_opacity/gratis because you are awesome/thatch_bc2.png",
-    "main/textures/thatch_no_opacity/gratis because you are awesome",
     "main/textures/thatch_no_opacity/thatch_roughness.png",
-    "main/textures/thatch_no_opacity/thatch_n.png",
-    "main/textures/thatch_no_opacity/thatch_bc.png",
-    "main/textures/thatch_no_opacity",
-    "main/textures/planks/gratis because you are awesome/boards_and_planks_bc2.png",
-    "main/textures/planks/gratis because you are awesome",
-    "main/textures/planks/boards_and_planks_roughness.png",
-    "main/textures/planks/boards_and_planks_n.png",
-    "main/textures/planks/boards_and_planks_bc.png"
+    "main/textures/thatch_no_opacity/thatch_n.png"
   ]
 }
