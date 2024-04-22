@@ -1,6 +1,20 @@
 boolean showPerspective = false;
 
-PShape house;
+class Object{
+  String id;
+  PShape mesh;
+  Object(String newId, String shapeRoute){
+    this.id = newId;
+    this.mesh = loadShape(shapeRoute);
+  }
+  Object(String shapeRoute){
+    this.mesh = loadShape(shapeRoute);
+  }
+  void print(){
+    shape(this.mesh);
+  }
+} 
+ArrayList<Object> objects = new ArrayList<Object>();
 
 void setup() {
   size(600, 360, P3D);
@@ -8,8 +22,8 @@ void setup() {
   fill(255);
   noStroke();
   
-  house = loadShape("LOD0_long_house.obj");
-  house.scale(-3);
+  objects.add(new Object("LOD0_long_house.obj"));
+  objects.get(0).mesh.scale(-3);
 }
 
 void draw() {
@@ -23,7 +37,8 @@ void draw() {
   translate(width/2, height/2, 0);
   rotateX(-PI/6);
   rotateY(PI/3);
-  shape(house);
+  for(int i = 0 ; i < objects.size(); i++)
+    objects.get(i).print();
 }
 
 void mousePressed() {

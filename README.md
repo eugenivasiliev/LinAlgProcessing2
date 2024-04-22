@@ -1,3 +1,0 @@
-# LinAlgProcessing2
-I wanna know what love is...
-I want you to show me
