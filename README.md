@@ -1,3 +1,6 @@
 # LinAlgProcessing2
-I wanna know what love is...
-I want you to show me
+isometric perspective.
+line equation.
+LUTs.
+Matrices.
+Collisions.
