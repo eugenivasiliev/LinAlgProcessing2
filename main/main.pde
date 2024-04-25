@@ -15,6 +15,7 @@ void setup() {
   fill(255);
   noStroke();
   rectMode(CENTER);
+  ortho();
   
   objects.add(new Object("LOD0_long_house.obj"));
   objects.get(0).mesh.scale(-3);
@@ -30,6 +31,16 @@ void draw() {
   translate(width/2, height/2, 0);
   rotateX(radians(35.264));
   rotateZ(PI/4);
+  
+  stroke(color(255, 0, 0));
+  line(0, 0, 0, 100, 0, 0);
+  stroke(color(0, 255, 0));
+  line(0, 0, 0, 0, 100, 0);
+  stroke(color(0, 0, 255));
+  line(0, 0, 0, 0, 0, 100);
+  stroke(0);
+  rect(0, 0, 1000, 1000);
+  
   pushMatrix();
   
   //Find pos on plane from mouse position
