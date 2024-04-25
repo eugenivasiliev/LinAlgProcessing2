@@ -3,6 +3,8 @@ int lastTime = 0;
 float deltaTime; 
 //PShape house;
 
+PImage img = createImage(200, 200, ARGB);
+
 final float camDist = 100f;
 
 ArrayList<Object> objects = new ArrayList<Object>();
@@ -15,7 +17,16 @@ void setup() {
   fill(255);
   noStroke();
   rectMode(CENTER);
+  imageMode(CENTER);
   ortho();
+  
+  for(int i = 0; i < 200; i++) {
+    for(int j = 0; j < 200; j++){
+      img.pixels[200 * i + j % 200] = color(255, 0, 0, 50000/((i - 100)*(i-100) + (j-100)*(j-100) + 1));
+    }
+  }
+  img.updatePixels();
+  
   
   objects.add(new Object("LOD0_long_house.obj"));
   objects.get(0).mesh.scale(-3);
@@ -26,6 +37,7 @@ void draw() {
   deltaTime = deltaTime();
   lights();
   background(0);
+  
   pushMatrix();
   //Isometric perspective transforms
   translate(width/2, height/2, 0);
@@ -44,31 +56,26 @@ void draw() {
   pushMatrix();
   
   //Find pos on plane from mouse position
-  translate(((mouseY-height/2)*1.05 + (mouseX-width/2)*cos(radians(30)))*cos(radians(35.264)), ((mouseY-height/2)*1.05 - (mouseX-width/2)*cos(radians(30)))*cos(radians(35.264)), 0.1f);
+  translate(((mouseY-height/2)*1.05 + (mouseX-width/2)*cos(radians(30)))*cos(radians(35.264)), ((mouseY-height/2)*1.05 - (mouseX-width/2)*cos(radians(30)))*cos(radians(35.264)), 1f);
   fill(color(255, 0, 0));
-  circle(0, 0, 40);
+  image(img, 0, 0);
+  //circle(0, 0, 40);
   fill(255);
   
   popMatrix();
   
   pushMatrix();
-  
-  translate(camDist, camDist, camDist);
-  
-  
-  //rect(0, 0, 1000, 1000);
-  rotateX(-PI/2);
-  rotateY(PI/2);
-  //shape(house);
   popMatrix();
+  for(int i = 0 ; i < objects.size(); i++)
+    objects.get(i).update();
+  
   popMatrix();
 }
 
 void keyPressed() {
-  rotateX(-PI/6);
-  rotateY(PI/3);
-  for(int i = 0 ; i < objects.size(); i++)
-    objects.get(i).update();
+  if(key == 'a') rotateZ(0.1);
+  if(key == 'd') rotateZ(0.1);
+  
 }
 
 void mousePressed() {
