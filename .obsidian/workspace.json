@@ -11,11 +11,9 @@
             "id": "8ea56405cce47f57",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "image",
               "state": {
-                "file": "README.md",
-                "mode": "source",
-                "source": false
+                "file": "main/blue.jpg"
               }
             }
           },
@@ -95,7 +93,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "README.md",
+                "file": "main/blue.jpg",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -112,7 +110,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "README.md",
+                "file": "main/blue.jpg",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -135,7 +133,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "README.md"
+                "file": "main/blue.jpg"
               }
             }
           }
@@ -158,6 +156,9 @@
   },
   "active": "8ea56405cce47f57",
   "lastOpenFiles": [
+    "main/models/rock/toon.png",
+    "main/models/rock/Kisi04.png",
+    "README.md",
     "main/red.jpg.crdownload",
     "main/red.jpg",
     "main/LOD0_long_house.mtl",
@@ -176,7 +177,6 @@
     "main/textures/thatch_with_opacity/info.txt",
     "main/textures/thatch_no_opacity/gratis because you are awesome/thatch_bc3a.png",
     "main/textures/thatch_no_opacity/gratis because you are awesome/thatch_bc2.png",
-    "main/textures/thatch_no_opacity/thatch_roughness.png",
-    "main/textures/thatch_no_opacity/thatch_n.png"
+    "main/textures/thatch_no_opacity/thatch_roughness.png"
   ]
 }

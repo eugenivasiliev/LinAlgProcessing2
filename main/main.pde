@@ -4,6 +4,10 @@ PShape house;
 
 final float camDist = 100f;
 
+ArrayList<Object> objects = new ArrayList<Object>();
+int FPS = 30;
+float timeInc;
+
 void setup() {
   size(600, 360, P3D);
   noFill();
@@ -11,28 +15,28 @@ void setup() {
   noStroke();
   rectMode(CENTER);
   
-  house = loadShape("LOD0_long_house.obj");
-  house.scale(-3);
+  objects.add(new Object("LOD0_long_house.obj"));
+  objects.get(0).mesh.scale(-3);
+  objects.add((Object)new physicsObject("models/rock/rock_small.obj",new PVector(100,100,100),new PVector(0,1,0), 10.f));
 }
 
 void draw() {
   lights();
   background(0);
-  //if (showPerspective == true) {
   pushMatrix();
+  //Isometric perspective transforms
   translate(width/2, height/2, 0);
   rotateX(radians(35.264));
   rotateZ(PI/4);
-  //  perspective();
-  //} else {
-  //  ortho();
-  //}
-  //pushMatrix();
+  pushMatrix();
   
-  //translate(((mouseY-height/2)*sin(radians(30)) + (mouseX-width/2)*cos(radians(30)))*cos(radians(35.264)), ((mouseY-height/2)*sin(radians(30)) - (mouseX-width/2)*cos(radians(30)))*cos(radians(35.264)), 0);
-  //box(10);
+  //Find pos on plane from mouse position
+  translate(((mouseY-height/2)*1.05 + (mouseX-width/2)*cos(radians(30)))*cos(radians(35.264)), ((mouseY-height/2)*1.05 - (mouseX-width/2)*cos(radians(30)))*cos(radians(35.264)), 0.1f);
+  fill(color(255, 0, 0));
+  circle(0, 0, 40);
+  fill(255);
   
-  //popMatrix();
+  popMatrix();
   
   pushMatrix();
   
@@ -47,7 +51,10 @@ void draw() {
 }
 
 void keyPressed() {
-  if (key == 'p') showPerspective = !showPerspective;
+  rotateX(-PI/6);
+  rotateY(PI/3);
+  for(int i = 0 ; i < objects.size(); i++)
+    objects.get(i).update();
 }
 
 void mousePressed() {
