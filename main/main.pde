@@ -1,6 +1,7 @@
 boolean showPerspective = false;
-
-PShape house;
+int lastTime = 0;
+float deltaTime; 
+//PShape house;
 
 final float camDist = 100f;
 
@@ -21,6 +22,7 @@ void setup() {
 }
 
 void draw() {
+  deltaTime = deltaTime();
   lights();
   background(0);
   pushMatrix();
@@ -46,7 +48,7 @@ void draw() {
   //rect(0, 0, 1000, 1000);
   rotateX(-PI/2);
   rotateY(PI/2);
-  shape(house);
+  //shape(house);
   popMatrix();
 }
 
@@ -59,4 +61,12 @@ void keyPressed() {
 
 void mousePressed() {
   
+}
+float deltaTime() { //Scale speed and other physics computations wrt frame duration
+  int delta;
+  float deltaTime;
+  delta = millis() - lastTime;
+  lastTime = millis();
+  deltaTime = delta*FPS/1000.0f;
+  return deltaTime;
 }

@@ -33,24 +33,25 @@ class physicsObject extends Object{
     aceleration = new PVector(0.0,0.0,0.0);
     massa = newMass;
     force = new PVector(0.0,9.8f,0.0);
-    mesh.translate(pos.x,pos.y,pos.z);
+    //mesh.translate(pos.x,pos.y,pos.z);
   }
  void update(){
     aceleration.x = force.x/massa;
     aceleration.y = force.y/massa;
     aceleration.z = force.z/massa;
-    speed.x += aceleration.x * timeInc;
-    speed.y += aceleration.y * timeInc;
-    speed.z += aceleration.z * timeInc;
+    speed.x += aceleration.x * deltaTime;
+    speed.y += aceleration.y * deltaTime;
+    speed.z += aceleration.z * deltaTime;
     //PVector tanslationValue = pos; 
-    pos.x += speed.x *timeInc;
-    pos.y += speed.y *timeInc;
-    pos.z += speed.z *timeInc;
+    pos.x += speed.x *deltaTime;
+    pos.y += speed.y *deltaTime;
+    pos.z += speed.z *deltaTime;
     //tanslationValue.sub(pos);
     //mesh.translate(tanslationValue.x,tanslationValue.y,tanslationValue.z);
-    println(pos);
+    
     pushMatrix();
       translate(pos.x,pos.y,pos.z);
+      shape(this.mesh);
     popMatrix();
   } 
  
