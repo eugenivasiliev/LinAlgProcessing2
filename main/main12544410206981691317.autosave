@@ -1,7 +1,6 @@
 boolean showPerspective = false;
-int lastTime = 0;
-float deltaTime; 
-//PShape house;
+
+PShape house;
 
 final float camDist = 100f;
 
@@ -22,7 +21,6 @@ void setup() {
 }
 
 void draw() {
-  deltaTime = deltaTime();
   lights();
   background(0);
   pushMatrix();
@@ -30,10 +28,19 @@ void draw() {
   translate(width/2, height/2, 0);
   rotateX(radians(35.264));
   rotateZ(PI/4);
+  
+  stroke(color(255, 0, 0));
+  line(0, 0, 0, 100, 0, 0);
+  stroke(color(0, 255, 0));
+  line(0, 0, 0, 0, 100, 0);
+  stroke(color(0, 0, 255));
+  line(0, 0, 0, 0, 0, 100);
+  stroke(255);
+  
   pushMatrix();
   
   //Find pos on plane from mouse position
-  translate(((mouseY-height/2)*1.05 + (mouseX-width/2)*cos(radians(30)))*cos(radians(35.264)), ((mouseY-height/2)*1.05 - (mouseX-width/2)*cos(radians(30)))*cos(radians(35.264)), 0.1f);
+  translate(((mouseY-height/2)*2*sin(radians(30)) + (mouseX-width/2)*cos(radians(30)))*cos(radians(35.264)), ((mouseY-height/2)*2*sin(radians(30)) - (mouseX-width/2)*cos(radians(30)))*cos(radians(35.264)), 0.1f);
   fill(color(255, 0, 0));
   circle(0, 0, 40);
   fill(255);
@@ -62,12 +69,4 @@ void keyPressed() {
 
 void mousePressed() {
   
-}
-float deltaTime() { //Scale speed and other physics computations wrt frame duration
-  int delta;
-  float deltaTime;
-  delta = millis() - lastTime;
-  lastTime = millis();
-  deltaTime = delta*FPS/1000.0f;
-  return deltaTime;
 }
