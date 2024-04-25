@@ -10,7 +10,7 @@ void setup() {
   
   objects.add(new Object("LOD0_long_house.obj"));
   objects.get(0).mesh.scale(-3);
-  objects.add((Object)new physicsObject("models/rock/rock_small.obj",new PVector(0,0,0),new PVector(0,0,0), 10, 20));
+  objects.add((Object)new physicsObject("models/rock/rock_small.obj",new PVector(100,100,100),new PVector(0,1,0), 10.f));
 }
 
 void draw() {
