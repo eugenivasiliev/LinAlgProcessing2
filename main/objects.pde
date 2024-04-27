@@ -16,13 +16,15 @@ class Object{
     print();
   }
   void print(){
-    
+    pushMatrix();
+    translate(pos.x,pos.y,pos.z);
     shape(this.mesh);
     if(debug){
         noFill();
         stroke(00,255,00);
         box(hitboxSize.x, hitboxSize.y, hitboxSize.z);
      }
+     popMatrix();
   }
 } 
 class physicsObject extends Object{
@@ -52,7 +54,7 @@ class physicsObject extends Object{
     speed = newVel;
     aceleration = new PVector(0.0,0.0,0.0);
     massa = newMass;
-    force = new PVector(0.0,9.8f,0.0);
+    force = new PVector(0.0,0,9.8f);
     this.hitboxSize = hbs;
   }
  void update(){
@@ -78,7 +80,7 @@ class physicsObject extends Object{
 }
 boolean collision(Object o1, Object o2){
   return (
-        (o1.pos.x + o1.hitboxSize.x/2 > o2.pos.x && o1.pos.y + o1.hitboxSize.y/2 > o2.pos.y && o1.pos.z + o1.hitboxSize.z/2 > o2.pos.z) &&
-        (o1.pos.x < o2.pos.x +o2.hitboxSize.x/2 && o1.pos.y < o2.pos.y + o2.hitboxSize.y/2 && o1.pos.z < o2.pos.z + o2.hitboxSize.z/2) 
+        (o1.pos.x + o1.hitboxSize.x > o2.pos.x && o1.pos.y + o1.hitboxSize.y > o2.pos.y && o1.pos.z + o1.hitboxSize.z > o2.pos.z) &&
+        (o1.pos.x < o2.pos.x +o2.hitboxSize.x && o1.pos.y < o2.pos.y + o2.hitboxSize.y && o1.pos.z < o2.pos.z + o2.hitboxSize.z) 
    );
 }

@@ -12,7 +12,7 @@ int FPS = 30;
 float timeInc;
 
 void setup() {
-  size(600, 360, P3D);
+  size(1080, 720, P3D);
   noFill();
   fill(255);
   noStroke();
@@ -26,11 +26,15 @@ void setup() {
     }
   }
   img.updatePixels();
-  
-  
   objects.add(new Object("LOD0_long_house.obj"));
   objects.get(0).mesh.scale(-3);
-  objects.add((Object)new physicsObject("models/rock/rock_small.obj",new PVector(100,100,100),new PVector(0,1,0), 10.f));
+  //objects.add((Object)new physicsObject("models/rock/rock_small.obj",new PVector(0,0,1000),new PVector(0,1,0), 10.f, new PVector(100,100,100)));
+  objects.add(new Object("LOD0_long_house.obj",new PVector(90,0,0), new PVector(100,100,100)));
+  objects.add((Object)new physicsObject("models/rock/rock_small.obj",new PVector(0,0,500),new PVector(0,0,1), 10.f, new PVector(100,100,100)));
+  if(collision(objects.get(0), objects.get(1)))
+    println("collied");
+  else
+    println("no collied");
 }
 
 void draw() {
