@@ -1,7 +1,7 @@
 boolean showPerspective = false;
 int lastTime = 0;
 float deltaTime; 
-//PShape house;
+boolean debug = true;
 
 PImage img = createImage(200, 200, ARGB);
 
@@ -37,7 +37,7 @@ void draw() {
   deltaTime = deltaTime();
   lights();
   background(0);
-  
+  fill(255);
   pushMatrix();
   //Isometric perspective transforms
   translate(width/2, height/2, 0);
