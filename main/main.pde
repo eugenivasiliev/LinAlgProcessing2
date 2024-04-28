@@ -54,10 +54,31 @@ void setup() {
    
    grass = loadImage("textures/grass.jpg");
   
-  buildings.add(new Object("LOD0_long_house.obj"));
-  buildings.get(0).mesh.scale(-3);
-  //objects.add((Object)new physicsObject("models/rock/rock_small.obj",new PVector(0,0,1000),new PVector(0,1,0), 10.f, new PVector(100,100,100)));
-  buildings.add(new Object("LOD0_long_house.obj",new PVector(90,0,0), new PVector(100,100,100)));
+  //buildings.add(new Object("LOD0_long_house.obj"));
+  //buildings.get(0).mesh.scale(-3);
+  //buildings.get(0).mesh.rotateX(90);
+  pushMatrix();
+  
+  //Isometric perspective transforms
+  translate(width/2, height/2, 0);
+  rotateX(radians(35.264));
+  rotateZ(PI/4);
+  int addedcount = 0;
+  for(int i = 0; i < 5; i ++)
+  {
+    for(int j = 0 ; j < 5 ; j++){
+        if(random(2) == 0){
+           buildings.add(new Object("models/house1/Cynthia's Family's House.obj",new PVector(((i+1)*150)-450,((j+1)*150)-450,100), new PVector(100,100,100)));
+           buildings.get(addedcount).mesh.setTexture(loadImage("models/house1/t5_s01_lm4.png"));
+        }
+        else{
+          buildings.add(new Object("models/house2/Solaceon Town House.obj",new PVector(((i+1)*150)-450,((j+1)*150)-450,100), new PVector(100,100,100)));
+           buildings.get(addedcount).mesh.setTexture(loadImage("models/house2/t4_h01_a.png"));
+        }
+       addedcount++;
+    }
+  }
+ popMatrix();
   meteorites.add((Object)new physicsObject("models/rock/rock_small.obj",new PVector(0,0,500),new PVector(0,0,1), 10.f, new PVector(100,100,100)));
   if(collision(buildings.get(0), buildings.get(1)))
     println("collied");
@@ -123,9 +144,9 @@ void draw() {
   
   popMatrix();
 }
-
+int rotationx, rotationy, rotationz;
 void keyPressed() {
-  if(key == 'a') rotateZ(0.1);
+  if(key == 'a')rotateZ(0.1);
   if(key == 'd') rotateZ(0.1);
   
 }
