@@ -1,5 +1,7 @@
 # Linear Algebra with Processing 2. Meteorite Strikes
 
+This README is intended to be seen on github, at https://github.com/eugenivasiliev/LinAlgProcessing2
+
 ## Description
 
 The project at hand was done as an assignment for a Linear Algebra class. As so, it serves as a demonstration of understanding and expertise with the following concepts:
@@ -14,6 +16,8 @@ The project is in essence a destruction simulator, inspired by the Natural Disas
 
 ![image](https://github.com/eugenivasiliev/LinAlgProcessing2/assets/159423029/ae2f9eb4-e8b1-47eb-90ad-baa8cbfb201c)
 (Credits for the image go to Paradox Interactive)
+
+Additionally, the models follow a medieval aesthetic, although the models are quite simple due to the many polygons taking up a notable amount of processing. Nonetheless, the project follows thus two of the themes presented in the task.
 
 ### Homogenous Transformations/Matrices
 To carry out all of the rendering and model positioning, homogenous transformations are used to properly treat the coordinates, angles, and scale of the objects. Since many instances of the use of these may be found around the code, we provide just one of many examples of its use:
