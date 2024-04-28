@@ -4,6 +4,8 @@ float deltaTime;
 boolean debug = true;
 
 PImage img = createImage(200, 200, ARGB);
+PImage aim ;
+PImage grass;
 
 final float camDist = 100f;
 
@@ -25,6 +27,8 @@ void setup() {
       img.pixels[200 * i + j % 200] = color(255, 0, 0, 50000/((i - 100)*(i-100) + (j-100)*(j-100) + 1));
     }
   }
+   aim = loadImage("textures/aim.png");
+   grass = loadImage("textures/grass.jpg");
   img.updatePixels();
   objects.add(new Object("LOD0_long_house.obj"));
   objects.get(0).mesh.scale(-3);
@@ -62,7 +66,8 @@ void draw() {
   //Find pos on plane from mouse position
   translate(((mouseY-height/2)*1.05 + (mouseX-width/2)*cos(radians(30)))*cos(radians(35.264)), ((mouseY-height/2)*1.05 - (mouseX-width/2)*cos(radians(30)))*cos(radians(35.264)), 1f);
   fill(color(255, 0, 0));
-  image(img, 0, 0);
+  //image(img, 0, 0);
+  image(aim, 0, 0);
   //circle(0, 0, 40);
   fill(255);
   
