@@ -45,7 +45,7 @@ An example of the procedure would be:
 </p>
 
 ### LUTs
-For the sprites and other images, a couple of LUT effects have been made use of. A prominent example is the texture used for the aiming function, likely the one texture the player will most see. In it, a small filter is performed so as to make it more transparent the further from the center a point is, so the player may properly see behind it and focus on the object destruction. The code for this effect is provided below.
+For the sprites and other images, a couple of LUT effects have been made use of. A prominent example is the texture used for the aiming function, likely the one texture the player will most see. In it, a small filter is performed so as to make it more transparent the further from the center a point is, so the player may properly see behind it and focus on the object destruction. The code for this effect is provided below. Additionally, the grass' texture may be changed using the q, w, e keys (for a red, green, and blue effect) and the s key for a reset. The effects can be combined for different colors too.
 
 ```
 //LUT formatting for the aim texture, making it more opaque the closer to the center a pixel is
