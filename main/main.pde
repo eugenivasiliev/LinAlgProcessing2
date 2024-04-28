@@ -4,7 +4,7 @@ SoundFile bgMusic, soundFX;
 boolean showPerspective = false;
 int lastTime = 0;
 float deltaTime; 
-boolean debug = true;
+boolean debug = false;
 
 PImage img = createImage(200, 200, ARGB);
 PImage aim;
@@ -75,7 +75,8 @@ void setup() {
           buildings.add(new Object("models/house2/Solaceon Town House.obj",new PVector(((i+1)*150)-450,((j+1)*150)-450,100), new PVector(100,100,100)));
            buildings.get(addedcount).mesh.setTexture(loadImage("models/house2/t4_h01_a.png"));
         }
-        buildings.get(addedcount).mesh.rotateY(-1.5);
+        buildings.get(addedcount).mesh.rotateX(1.5);
+        buildings.get(addedcount).mesh.rotateZ(1.5);
        addedcount++;
     }
   }
@@ -135,12 +136,18 @@ void draw() {
         buildings.remove(i);
         meteorites.remove(j);
         soundFX.play();
+        if(buildings.size() == 0)
+          exit();
       }
     }
   }
+  
   for(int i = 0 ; i < meteorites.size(); i++) {
     meteorites.get(i).update();
-    if(meteorites.get(i).pos.z < -1f) meteorites.remove(i);
+    if(meteorites.get(i).pos.z < -1f){
+      meteorites.remove(i);
+      soundFX.play();
+    }
   }
   
   popMatrix();
