@@ -4,7 +4,7 @@ float deltaTime;
 boolean debug = true;
 
 PImage img = createImage(200, 200, ARGB);
-PImage aim ;
+PImage aim;
 PImage grass;
 
 final float camDist = 100f;
@@ -23,16 +23,31 @@ void setup() {
   imageMode(CENTER);
   ortho();
   
+  //LUT formatting for the aim texture, making it more opaque the closer to the center a pixel is
   aim = loadImage("textures/aim.png");
+  aim.format = ARGB;
   
-  for(int i = 0; i < 200; i++) {
-    for(int j = 0; j < 200; j++){
-      aim.pixels[200 * i + j % 200] = color(255, 0, 0, 50000/((i - 100)*(i-100) + (j-100)*(j-100) + 1));
+  for(int i = 0; i < aim.width; i++) {
+    for(int j = 0; j < aim.height; j++){
+      color aimPixel = aim.get(i, j);
+      if((i - aim.width/2)*(i - aim.width/2) + (j - aim.height/2)*(j - aim.height/2) > aim.width * aim.width / 4)
+        aimPixel = color(red(aimPixel), green(aimPixel), blue(aimPixel), 0);
+      else if((i - aim.width/2)*(i - aim.width/2) + (j - aim.height/2)*(j - aim.height/2) > aim.width * aim.width / 8)
+        aimPixel = color(red(aimPixel), green(aimPixel), blue(aimPixel), 96);
+      else if((i - aim.width/2)*(i - aim.width/2) + (j - aim.height/2)*(j - aim.height/2) > aim.width * aim.width / 16)
+        aimPixel = color(red(aimPixel), green(aimPixel), blue(aimPixel), 160);
+        else if((i - aim.width/2)*(i - aim.width/2) + (j - aim.height/2)*(j - aim.height/2) > aim.width * aim.width / 32)
+        aimPixel = color(red(aimPixel), green(aimPixel), blue(aimPixel), 220);
+      else
+        aimPixel = color(red(aimPixel), green(aimPixel), blue(aimPixel), 255);
+      aim.set(i, j, aimPixel);
     }
   }
+  
+  aim.updatePixels();
    
    grass = loadImage("textures/grass.jpg");
-  aim.updatePixels();
+  
   buildings.add(new Object("LOD0_long_house.obj"));
   buildings.get(0).mesh.scale(-3);
   //objects.add((Object)new physicsObject("models/rock/rock_small.obj",new PVector(0,0,1000),new PVector(0,1,0), 10.f, new PVector(100,100,100)));
@@ -49,23 +64,30 @@ void draw() {
   lights();
   background(0);
   fill(255);
+  
+  
   pushMatrix();
+  
   //Isometric perspective transforms
   translate(width/2, height/2, 0);
   rotateX(radians(35.264));
   rotateZ(PI/4);
   
-  stroke(color(255, 0, 0));
-  line(0, 0, 0, 100, 0, 0);
-  stroke(color(0, 255, 0));
-  line(0, 0, 0, 0, 100, 0);
-  stroke(color(0, 0, 255));
-  line(0, 0, 0, 0, 0, 100);
-  stroke(0);
+  if(debug){
+    //Show axes
+    stroke(color(255, 0, 0));
+    line(0, 0, 0, 100, 0, 0);
+    stroke(color(0, 255, 0));
+    line(0, 0, 0, 0, 100, 0);
+    stroke(color(0, 0, 255));
+    line(0, 0, 0, 0, 0, 100);
+    stroke(0);
+  }
+  
   image(grass,0,0,1000,1000);
   pushMatrix();
   
-  //Find pos on plane from mouse position
+  //Find pos on plane from mouse position, according to the line equation from a plane at camDist from (0, 0, 0) with normal vector (1, 1, 1) and the XY-plane.
   translate(((mouseY-height/2)*1.05 + (mouseX-width/2)*cos(radians(30)))*cos(radians(35.264)), ((mouseY-height/2)*1.05 - (mouseX-width/2)*cos(radians(30)))*cos(radians(35.264)), 1f);
   fill(color(255, 0, 0));
   //image(img, 0, 0);
