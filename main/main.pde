@@ -67,7 +67,7 @@ void setup() {
   for(int i = 0; i < 5; i ++)
   {
     for(int j = 0 ; j < 5 ; j++){
-        if(random(2) == 0){
+        if(int(random(2))%2 == 0){
            buildings.add(new Object("models/house1/Cynthia's Family's House.obj",new PVector(((i+1)*150)-450,((j+1)*150)-450,100), new PVector(100,100,100)));
            buildings.get(addedcount).mesh.setTexture(loadImage("models/house1/t5_s01_lm4.png"));
         }
@@ -75,6 +75,7 @@ void setup() {
           buildings.add(new Object("models/house2/Solaceon Town House.obj",new PVector(((i+1)*150)-450,((j+1)*150)-450,100), new PVector(100,100,100)));
            buildings.get(addedcount).mesh.setTexture(loadImage("models/house2/t4_h01_a.png"));
         }
+        buildings.get(addedcount).mesh.rotateY(-1.5);
        addedcount++;
     }
   }
