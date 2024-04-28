@@ -54,7 +54,7 @@ class physicsObject extends Object{
     speed = newVel;
     aceleration = new PVector(0.0,0.0,0.0);
     massa = newMass;
-    force = new PVector(0.0,0,9.8f);
+    force = new PVector(0.0,0,-9.8f);
     this.hitboxSize = hbs;
   }
  void update(){
