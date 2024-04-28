@@ -1,3 +1,6 @@
+import processing.sound.*;
+SoundFile bgMusic, soundFX;
+
 boolean showPerspective = false;
 int lastTime = 0;
 float deltaTime; 
@@ -26,7 +29,10 @@ void setup() {
   //LUT formatting for the aim texture, making it more opaque the closer to the center a pixel is
   aim = loadImage("textures/aim.png");
   aim.format = ARGB;
-  
+  bgMusic = new SoundFile(this,"sounds/skyloft.mp3");
+  soundFX = new SoundFile(this,"sounds/rock.mp3");
+  bgMusic.play();
+  bgMusic.loop();
   for(int i = 0; i < aim.width; i++) {
     for(int j = 0; j < aim.height; j++){
       color aimPixel = aim.get(i, j);
@@ -106,6 +112,7 @@ void draw() {
       if(collision(buildings.get(i), meteorites.get(j))) {
         buildings.remove(i);
         meteorites.remove(j);
+        soundFX.play();
       }
     }
   }
