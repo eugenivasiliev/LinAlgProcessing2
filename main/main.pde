@@ -156,7 +156,36 @@ int rotationx, rotationy, rotationz;
 void keyPressed() {
   if(key == 'a')rotateZ(0.1);
   if(key == 'd') rotateZ(0.1);
-  
+  if(key == 's'){
+     grass = loadImage("textures/grass.jpg");
+  }
+  if(key == 'q'){
+    for(int i = 0; i < grass.width; i++) {
+      for(int j = 0; j < grass.height; j++){
+        color grassPixel = grass.get(i, j);
+        grassPixel = color(255, green(grassPixel), blue(grassPixel), 255);
+        grass.set(i, j, grassPixel);
+      }
+    }
+  }
+  if(key == 'w'){
+    for(int i = 0; i < grass.width; i++) {
+      for(int j = 0; j < grass.height; j++){
+        color grassPixel = grass.get(i, j);
+        grassPixel = color(red(grassPixel), 255, blue(grassPixel), 255);
+        grass.set(i, j, grassPixel);
+      }
+    }
+  }
+  if(key == 'e'){
+    for(int i = 0; i < grass.width; i++) {
+      for(int j = 0; j < grass.height; j++){
+        color grassPixel = grass.get(i, j);
+        grassPixel = color(red(grassPixel), green(grassPixel), 255, 255);
+        grass.set(i, j, grassPixel);
+      }
+    }
+  }
 }
 
 void mousePressed() {
