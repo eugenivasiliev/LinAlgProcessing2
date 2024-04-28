@@ -4,7 +4,7 @@
 
 The project at hand was done as an assignment for a Linear Algebra class. As so, it serves as a demonstration of understanding and expertise with the following concepts:
 
-- Matrices
+- Homogenous Transformations/Matrices
 - Isometric Perspective
 - Line Equations
 - LUTs
@@ -15,7 +15,21 @@ The project is in essence a destruction simulator, inspired by the Natural Disas
 ![image](https://github.com/eugenivasiliev/LinAlgProcessing2/assets/159423029/ae2f9eb4-e8b1-47eb-90ad-baa8cbfb201c)
 (Credits for the image go to Paradox Interactive)
 
-### Matrices
+### Homogenous Transformations/Matrices
+To carry out all of the rendering and model positioning, homogenous transformations are used to properly treat the coordinates, angles, and scale of the objects. Since many instances of the use of these may be found around the code, we provide just one of many examples of its use:
+
+```
+pushMatrix();
+translate(pos.x,pos.y,pos.z);
+shape(this.mesh);
+if(debug){
+  noFill();
+  stroke(00,255,00);
+  box(hitboxSize.x, hitboxSize.y, hitboxSize.z);
+}
+popMatrix();
+```
+
 ### Isometric Perspective
 The project is performed entirely in Isometric Perspective. To achieve this effect, three homogenous transformations were performed. Firstly, a translation by $(\frac{width}2, \frac{height}2, 0)$ was made to center the origin and work with more simplified coordinates. Then, a 35.264 degree rotation is performed around the $X$ axis, and a 45 degree rotation is performed around the $Z$ axis. As such, an Isometric Perspective is achieved.
 
@@ -29,3 +43,31 @@ An example of the procedure would be:
 <p align="center">
   <img src="https://github.com/eugenivasiliev/LinAlgProcessing2/assets/159423029/9c9fbde6-f984-422d-8a57-4ce3721ad553" alt="Geometric construction of the point P'"/>
 </p>
+
+### LUTs
+For the sprites and other images, a couple of LUT effects have been made use of. A prominent example is the texture used for the aiming function, likely the one texture the player will most see. In it, a small filter is performed so as to make it more transparent the further from the center a point is, so the player may properly see behind it and focus on the object destruction. The code for this effect is provided below.
+
+```
+//LUT formatting for the aim texture, making it more opaque the closer to the center a pixel is
+aim = loadImage("textures/aim.png");
+aim.format = ARGB;
+  
+for(int i = 0; i < aim.width; i++) {
+  for(int j = 0; j < aim.height; j++){
+    color aimPixel = aim.get(i, j);
+    if((i - aim.width/2)*(i - aim.width/2) + (j - aim.height/2)*(j - aim.height/2) > aim.width * aim.width / 4)
+      aimPixel = color(red(aimPixel), green(aimPixel), blue(aimPixel), 0);
+    else if((i - aim.width/2)*(i - aim.width/2) + (j - aim.height/2)*(j - aim.height/2) > aim.width * aim.width / 8)
+      aimPixel = color(red(aimPixel), green(aimPixel), blue(aimPixel), 96);
+    else if((i - aim.width/2)*(i - aim.width/2) + (j - aim.height/2)*(j - aim.height/2) > aim.width * aim.width / 16)
+      aimPixel = color(red(aimPixel), green(aimPixel), blue(aimPixel), 160);
+    else if((i - aim.width/2)*(i - aim.width/2) + (j - aim.height/2)*(j - aim.height/2) > aim.width * aim.width / 32)
+      aimPixel = color(red(aimPixel), green(aimPixel), blue(aimPixel), 220);
+    else
+      aimPixel = color(red(aimPixel), green(aimPixel), blue(aimPixel), 255);
+    aim.set(i, j, aimPixel);
+  }
+}
+
+aim.updatePixels();
+```
