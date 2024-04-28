@@ -60,14 +60,14 @@ void draw() {
   line(0, 0, 0, 0, 0, 100);
   stroke(0);
   rect(0, 0, 1000, 1000);
-  
+  image(grass,0,0,1000,1000);
   pushMatrix();
   
   //Find pos on plane from mouse position
   translate(((mouseY-height/2)*1.05 + (mouseX-width/2)*cos(radians(30)))*cos(radians(35.264)), ((mouseY-height/2)*1.05 - (mouseX-width/2)*cos(radians(30)))*cos(radians(35.264)), 1f);
   fill(color(255, 0, 0));
   //image(img, 0, 0);
-  image(aim, 0, 0);
+  image(aim, 0, 0,50,50);
   //circle(0, 0, 40);
   fill(255);
   
