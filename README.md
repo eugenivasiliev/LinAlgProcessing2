@@ -71,3 +71,15 @@ for(int i = 0; i < aim.width; i++) {
 
 aim.updatePixels();
 ```
+
+### Collisions
+The collisions are handled using a Bounding Box approach, since a simplified collision is enough given the project's purposes. To do so, a separate Object class was created, and its bounding box is set so it follows the object's visuals. A collision function is then used to check for any collisions so the destruction can be done. The collision code is provided below.
+
+```
+boolean collision(Object o1, Object o2){
+  return (
+    (o1.pos.x + o1.hitboxSize.x > o2.pos.x && o1.pos.y + o1.hitboxSize.y > o2.pos.y && o1.pos.z + o1.hitboxSize.z > o2.pos.z) &&
+    (o1.pos.x < o2.pos.x +o2.hitboxSize.x && o1.pos.y < o2.pos.y + o2.hitboxSize.y && o1.pos.z < o2.pos.z + o2.hitboxSize.z) 
+  );
+}
+```
