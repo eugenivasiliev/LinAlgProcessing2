@@ -54,9 +54,6 @@ void setup() {
    
    grass = loadImage("textures/grass.jpg");
   
-  //buildings.add(new Object("LOD0_long_house.obj"));
-  //buildings.get(0).mesh.scale(-3);
-  //buildings.get(0).mesh.rotateX(90);
   pushMatrix();
   
   //Isometric perspective transforms
@@ -67,13 +64,18 @@ void setup() {
   for(int i = 0; i < 5; i ++)
   {
     for(int j = 0 ; j < 5 ; j++){
-        if(int(random(2))%2 == 0){
+        int building = int(random(3))%3;
+        if(building == 0){
            buildings.add(new Object("models/house1/Cynthia's Family's House.obj",new PVector(((i+1)*150)-450,((j+1)*150)-450,100), new PVector(100,100,100)));
            buildings.get(addedcount).mesh.setTexture(loadImage("models/house1/t5_s01_lm4.png"));
         }
-        else{
+        else if(building == 1){
           buildings.add(new Object("models/house2/Solaceon Town House.obj",new PVector(((i+1)*150)-450,((j+1)*150)-450,100), new PVector(100,100,100)));
            buildings.get(addedcount).mesh.setTexture(loadImage("models/house2/t4_h01_a.png"));
+        }
+        else{
+          buildings.add(new Object("models/castle/hat_toride_model.obj",new PVector(((i+1)*150)-450,((j+1)*150)-450,100), new PVector(100,100,100)));
+           buildings.get(addedcount).mesh.setTexture(loadImage("models/castle/hat_toride_color.png"));
         }
         buildings.get(addedcount).mesh.rotateX(1.5);
         buildings.get(addedcount).mesh.rotateZ(1.5);
